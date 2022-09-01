@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+.Pages{
+  padding:5rem;
+  
+}
+.header{
+  font-family: 'Rubik', sans-serif;
+  padding:20px 40px 20px;
+  display: flex;  
+  background-color:#eee;
+  justify-content: space-between;
+}
+
+.header .Logo{
+    font-weight:900;
+    margin:10px;
+}
+.menu {
+  list-style-type:none;
+  display:flex;
+  justify-content: space-around;
+}
+
+.menu li .Link,.LogButton {
+  margin-left:20px;
+  text-decoration: none ;
+  color:#000;
+  font-size:17px;
+  font-weight:bold;
+}
+.menu li  .active{
+  color: #ff4d4d;
+
+}
+.LogButton{
+  background-color:#ff4d4d;
+  border:none;
+  border-radius:6px;
+   color:#fff;
+   font-size:10px;
+   padding: 7px  20px 7px;
+}
