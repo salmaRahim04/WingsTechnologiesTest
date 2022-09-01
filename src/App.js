@@ -44,7 +44,7 @@ function App() {
         <Route exact path="/Login">
             <Login/>
          </Route>:
-         <Redirect to="/Posts" />
+         <Redirect to="/posts" />
        }
     </Switch>
    </Router>
