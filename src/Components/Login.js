@@ -32,7 +32,7 @@ function Login() {
              <div>
         {errors.password &&  <div className='errorMessage'>{errors.password.message}</div>}
         </div>            
-       <button id="password" className='submit' onClick={handleSubmit(onFormSubmit)}>Login</button>
+       <button  className='submit' onClick={handleSubmit(onFormSubmit)}>Login</button>
     </form>
     </div>
   )
