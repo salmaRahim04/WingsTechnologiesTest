@@ -9,8 +9,11 @@ import Home from './Components/Home';
 import Login from './Components/Login';
 
 
+
 function App() {
   const { logout,IsloggedIn } = useContext(UserContext);
+
+ 
   return (    
   
     <Router>
@@ -42,7 +45,7 @@ function App() {
         <Route exact path="/Login">
             <Login/>
          </Route>:
-         <Redirect to="/Posts" />
+         <Redirect to="/posts" />
        }
     </Switch>
    </Router>

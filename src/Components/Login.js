@@ -10,7 +10,6 @@ function Login() {
     const onFormSubmit  = data => {    
         login(data.email,data.password)
    };
-
     return (
     <div className='loginCard '>
     <h2>Login</h2>
@@ -34,7 +33,10 @@ function Login() {
              <div>
         {errors.password &&  <div className='errorMessage'>{errors.password.message}</div>}
         </div>            
+
        <button className='submit' onClick={handleSubmit(onFormSubmit)}>Login</button>
+
+
     </form>
     </div>
   )
