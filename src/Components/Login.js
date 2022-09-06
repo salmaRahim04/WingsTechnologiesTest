@@ -1,15 +1,17 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { useForm } from "react-hook-form";
+import UserContext  from '../Context/UserContext';
+
 import './login.css';
+
 function Login() {
   const { handleSubmit, register, formState: { errors } } = useForm();
-  
-    const onFormSubmit  = data => {
-       localStorage.setItem('user',JSON.stringify(data))
-       window.location.reload()
-    };
- 
-  return (
+  const {login} = useContext(UserContext);
+    const onFormSubmit  = data => {    
+        login(data.email,data.password)
+   };
+
+    return (
     <div className='loginCard '>
     <h2>Login</h2>
         <form >
@@ -32,7 +34,7 @@ function Login() {
              <div>
         {errors.password &&  <div className='errorMessage'>{errors.password.message}</div>}
         </div>            
-       <button id="password" className='submit' onClick={handleSubmit(onFormSubmit)}>Login</button>
+       <button className='submit' onClick={handleSubmit(onFormSubmit)}>Login</button>
     </form>
     </div>
   )

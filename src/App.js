@@ -1,32 +1,27 @@
-import { useState } from 'react';
+import {useContext,useState } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,Route, Switch,NavLink, Redirect
 } from 'react-router-dom';
+import UserContext  from './Context/UserContext';
 import Posts from './Components/Posts';
 import Home from './Components/Home';
 import Login from './Components/Login';
+
+
 function App() {
-  const [loggedIn,setloggedIn] = useState(localStorage.getItem("user"));
-  const Logout= async (e) =>{
-    e.preventDefault();
-    localStorage.removeItem('user');
-    setloggedIn(null)
-  
-}
-
-
-
+  const { logout,IsloggedIn } = useContext(UserContext);
   return (    
+  
     <Router>
    <div className="header">
     <h2 className='Logo'>Logo</h2>
     <ul className='menu'> 
    <li><NavLink exact to="/" className='Link' activeClassName="active">Home</NavLink></li>
-    <li>{loggedIn==null?null: <NavLink className='Link' activeClassName="active" to="/posts">Posts</NavLink>}</li>
-    <li>{loggedIn==null?
+    <li>{IsloggedIn===false?null: <NavLink className='Link' activeClassName="active" to="/posts">Posts</NavLink>}</li>
+    <li>{IsloggedIn===false?
     <NavLink to="/login"><button className='LogButton'>Login</button></NavLink>:
-    <button className='LogButton' onClick={Logout} >Logout</button>}</li>
+    <button className='LogButton' onClick={logout} >Logout</button>}</li>
     </ul>
    </div>
   
@@ -35,7 +30,7 @@ function App() {
             <Home />
          </Route>
       {
-        loggedIn !== null?
+        IsloggedIn===true?
         <Route exact path="/posts" >
             <Posts />
          </Route>:
@@ -43,7 +38,7 @@ function App() {
       }
      
        {
-        loggedIn == null?
+        IsloggedIn!==true?
         <Route exact path="/Login">
             <Login/>
          </Route>:
@@ -52,8 +47,7 @@ function App() {
     </Switch>
    </Router>
   
-    
-
+   
   );
 }
 
