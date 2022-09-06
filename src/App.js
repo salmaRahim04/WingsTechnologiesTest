@@ -1,4 +1,4 @@
-import {useContext,useState } from 'react';
+import {useContext } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,Route, Switch,NavLink, Redirect
